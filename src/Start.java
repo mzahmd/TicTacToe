@@ -13,9 +13,17 @@ class Start {
   JPanel panel = new JPanel();
 
   Start() {
-    label.setText("Want to play Tic Tac Toe ? " + '\n' + "Click Start");
+    label.setText("Want to play Tic Tac Toe ? Click Start");
     label.setFont(new Font("MV Boli", Font.BOLD, 17));
     label.setForeground(Color.WHITE);
+
+    closeButton.setFocusable(false);
+    startButton.setFocusable(false);
+    closeButton.addActionListener(e -> frame.dispose());
+    startButton.addActionListener(e -> {
+      frame.dispose();
+      new TicTacToe();
+    });
 
     panel.add(startButton);
     panel.add(closeButton);
