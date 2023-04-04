@@ -6,13 +6,15 @@ import java.awt.Color;
 import java.awt.Font;
 
 class Start {
-  JFrame frame = new JFrame();
-  JButton startButton = new JButton("start");
-  JButton closeButton = new JButton("close");
-  JLabel label = new JLabel();
-  JPanel panel = new JPanel();
 
   Start() {
+    JFrame frame = new JFrame();
+    JButton startButton = new JButton("start");
+    JButton closeButton = new JButton("close");
+    JLabel label = new JLabel();
+    JPanel panel = new JPanel();
+
+
     label.setText("Want to play Tic Tac Toe ? Click start");
     label.setFont(new Font("MV Boli", Font.BOLD, 17));
     label.setForeground(Color.WHITE);
