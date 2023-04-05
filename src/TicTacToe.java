@@ -28,7 +28,6 @@ class TicTacToe implements ActionListener {
     title_label.setText("Tic Tac Toe");
     title_label.setVerticalTextPosition(JLabel.TOP);
     title_label.setHorizontalAlignment(JLabel.CENTER);
-    title_label.setBounds(0, 0, 500, 0);
 
     title_panel.setBackground(Color.RED);
     title_panel.add(title_label);
@@ -49,8 +48,10 @@ class TicTacToe implements ActionListener {
         if ("".equals(field.getText())) {
           if (turn) {
             field.setText("X");
+            turn = !turn;
           } else {
             field.setText("O");
+            turn = !turn;
           }
           break;
         }
