@@ -51,7 +51,7 @@ class Start {
 
     while (true) {
       try {
-        Thread.sleep(1000);
+        Thread.sleep(900);
         if (show) {
           start.setText("Click start");
         } else {

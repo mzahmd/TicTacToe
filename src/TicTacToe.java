@@ -17,7 +17,7 @@ class TicTacToe implements ActionListener {
   JPanel title_panel = new JPanel();
   JLabel title_label = new JLabel();
   JButton[] fields = new JButton[9];
-  boolean turn;
+  boolean x_turn;
 
   TicTacToe() {
 
@@ -50,20 +50,34 @@ class TicTacToe implements ActionListener {
     for (JButton field : fields) {
       if (e.getSource() == field) {
         if ("".equals(field.getText())) {
-          if (turn) {
+          if (x_turn) {
             field.setText("X");
             field.setFont(new Font("MV Boli", Font.PLAIN, 40));
             field.setForeground(Color.RED);
-            turn = !turn;
+            x_turn = !x_turn;
           } else {
             field.setText("O");
-            field.setForeground(Color.BLUE);
             field.setFont(new Font("MV Boli", Font.PLAIN, 40));
-            turn = !turn;
+            field.setForeground(Color.BLUE);
+            x_turn = !x_turn;
           }
           break;
         }
       }
+    }
+    check();
+  }
+
+  void check() {
+    String winner;
+    winner = x_turn ? "X" : "O";
+
+    if("X".equals(fields[0].getText()) && "X".equals(fields[1].getText()) && "X".equals(fields[2].getText())
+            || "X".equals(fields[3].getText()) && "X".equals(fields[4].getText()) && "X".equals(fields[5].getText())
+            || "X".equals(fields[6].getText()) && "X".equals(fields[7].getText()) && "X".equals(fields[8].getText())
+    ) {
+      title_label.setText("X Winner");
+      fields[0].setEnabled(true);
     }
   }
 }
