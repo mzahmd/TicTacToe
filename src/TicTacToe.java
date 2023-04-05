@@ -97,8 +97,6 @@ class TicTacToe implements ActionListener {
     if(winner.equals(fields[2].getText()) && winner.equals(fields[4].getText()) && winner.equals(fields[6].getText())) {
       endgame(2, 4, 6);
     }
-
-
   }
 
   void endgame(int x, int y, int z) {
