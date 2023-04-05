@@ -17,6 +17,7 @@ class TicTacToe implements ActionListener {
   JPanel title_panel = new JPanel();
   JLabel title_label = new JLabel();
   JButton[] fields = new JButton[9];
+  String winner;
   boolean x_turn;
 
   TicTacToe() {
@@ -54,13 +55,12 @@ class TicTacToe implements ActionListener {
             field.setText("X");
             field.setFont(new Font("MV Boli", Font.PLAIN, 40));
             field.setForeground(Color.RED);
-            x_turn = !x_turn;
           } else {
             field.setText("O");
             field.setFont(new Font("MV Boli", Font.PLAIN, 40));
             field.setForeground(Color.BLUE);
-            x_turn = !x_turn;
           }
+          x_turn = !x_turn;
           break;
         }
       }
@@ -69,15 +69,42 @@ class TicTacToe implements ActionListener {
   }
 
   void check() {
-    String winner;
     winner = x_turn ? "X" : "O";
 
-    if("X".equals(fields[0].getText()) && "X".equals(fields[1].getText()) && "X".equals(fields[2].getText())
-            || "X".equals(fields[3].getText()) && "X".equals(fields[4].getText()) && "X".equals(fields[5].getText())
-            || "X".equals(fields[6].getText()) && "X".equals(fields[7].getText()) && "X".equals(fields[8].getText())
-    ) {
-      title_label.setText("X Winner");
-      fields[0].setEnabled(true);
+    if("X".equals(fields[0].getText()) && "X".equals(fields[1].getText()) && "X".equals(fields[2].getText())) {
+      winner(0, 1, 2);
+    }
+    if("X".equals(fields[3].getText()) && "X".equals(fields[4].getText()) && "X".equals(fields[5].getText())) {
+      winner(3, 4, 5);
+    }
+    if("X".equals(fields[6].getText()) && "X".equals(fields[7].getText()) && "X".equals(fields[8].getText())) {
+      winner(6, 7, 8);
+    }
+
+    if("X".equals(fields[0].getText()) && "X".equals(fields[3].getText()) && "X".equals(fields[6].getText())) {
+      winner(0, 3, 6);
+    }
+    if("X".equals(fields[1].getText()) && "X".equals(fields[4].getText()) && "X".equals(fields[7].getText())) {
+      winner(1, 4, 7);
+    }
+    if("X".equals(fields[2].getText()) && "X".equals(fields[5].getText()) && "X".equals(fields[8].getText())) {
+      winner(2, 5, 8);
+    }
+
+    if("X".equals(fields[0].getText()) && "X".equals(fields[4].getText()) && "X".equals(fields[8].getText())) {
+      winner(0, 4, 8);
+    }
+
+
+  }
+
+  void winner(int x, int y, int z) {
+    fields[x].setBackground(Color.GREEN);
+    fields[y].setBackground(Color.GREEN);
+    fields[z].setBackground(Color.GREEN);
+
+    for (JButton field : fields) {
+      field.setEnabled(false);
     }
   }
 }
