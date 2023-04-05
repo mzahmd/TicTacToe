@@ -20,16 +20,18 @@ class TicTacToe implements ActionListener {
 
     for(int i=0; i<fields.length; i++) {
       fields[i] = new JButton();
+      fields[i].setFocusable(false);
       fields[i].addActionListener(this);
       button_panel.add(fields[i]);
     }
 
     title_label.setText("Tic Tac Toe");
     title_label.setVerticalTextPosition(JLabel.TOP);
+    title_label.setHorizontalAlignment(JLabel.CENTER);
     title_label.setBounds(0, 0, 500, 0);
+
     title_panel.setBackground(Color.RED);
     title_panel.add(title_label);
-
     button_panel.setLayout(new GridLayout(3, 3, 0, 0));
 
     frame.add(title_panel);
@@ -42,11 +44,16 @@ class TicTacToe implements ActionListener {
 
   @Override
   public void actionPerformed(ActionEvent e) {
-    if (e.getSource() instanceof JButton) {
-      if (turn) {
-
-      } else {
-
+    for (JButton field : fields) {
+      if (e.getSource() == field) {
+        if ("".equals(field.getText())) {
+          if (turn) {
+            field.setText("X");
+          } else {
+            field.setText("O");
+          }
+          break;
+        }
       }
     }
   }
