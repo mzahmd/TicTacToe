@@ -60,45 +60,48 @@ class TicTacToe implements ActionListener {
             field.setFont(new Font("MV Boli", Font.PLAIN, 40));
             field.setForeground(Color.BLUE);
           }
+          check();
           x_turn = !x_turn;
           break;
         }
       }
     }
-    check();
   }
 
   void check() {
     winner = x_turn ? "X" : "O";
 
-    if("X".equals(fields[0].getText()) && "X".equals(fields[1].getText()) && "X".equals(fields[2].getText())) {
-      winner(0, 1, 2);
+    if(winner.equals(fields[0].getText()) && winner.equals(fields[1].getText()) && winner.equals(fields[2].getText())) {
+      endgame(0, 1, 2);
     }
-    if("X".equals(fields[3].getText()) && "X".equals(fields[4].getText()) && "X".equals(fields[5].getText())) {
-      winner(3, 4, 5);
+    if(winner.equals(fields[3].getText()) && winner.equals(fields[4].getText()) && winner.equals(fields[5].getText())) {
+      endgame(3, 4, 5);
     }
-    if("X".equals(fields[6].getText()) && "X".equals(fields[7].getText()) && "X".equals(fields[8].getText())) {
-      winner(6, 7, 8);
-    }
-
-    if("X".equals(fields[0].getText()) && "X".equals(fields[3].getText()) && "X".equals(fields[6].getText())) {
-      winner(0, 3, 6);
-    }
-    if("X".equals(fields[1].getText()) && "X".equals(fields[4].getText()) && "X".equals(fields[7].getText())) {
-      winner(1, 4, 7);
-    }
-    if("X".equals(fields[2].getText()) && "X".equals(fields[5].getText()) && "X".equals(fields[8].getText())) {
-      winner(2, 5, 8);
+    if(winner.equals(fields[6].getText()) && winner.equals(fields[7].getText()) && winner.equals(fields[8].getText())) {
+      endgame(6, 7, 8);
     }
 
-    if("X".equals(fields[0].getText()) && "X".equals(fields[4].getText()) && "X".equals(fields[8].getText())) {
-      winner(0, 4, 8);
+    if(winner.equals(fields[0].getText()) && winner.equals(fields[3].getText()) && winner.equals(fields[6].getText())) {
+      endgame(0, 3, 6);
+    }
+    if(winner.equals(fields[1].getText()) && winner.equals(fields[4].getText()) && winner.equals(fields[7].getText())) {
+      endgame(1, 4, 7);
+    }
+    if(winner.equals(fields[2].getText()) && winner.equals(fields[5].getText()) && winner.equals(fields[8].getText())) {
+      endgame(2, 5, 8);
+    }
+
+    if(winner.equals(fields[0].getText()) && winner.equals(fields[4].getText()) && winner.equals(fields[8].getText())) {
+      endgame(0, 4, 8);
+    }
+    if(winner.equals(fields[2].getText()) && winner.equals(fields[4].getText()) && winner.equals(fields[6].getText())) {
+      endgame(2, 4, 6);
     }
 
 
   }
 
-  void winner(int x, int y, int z) {
+  void endgame(int x, int y, int z) {
     fields[x].setBackground(Color.GREEN);
     fields[y].setBackground(Color.GREEN);
     fields[z].setBackground(Color.GREEN);
@@ -107,4 +110,5 @@ class TicTacToe implements ActionListener {
       field.setEnabled(false);
     }
   }
+
 }
