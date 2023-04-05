@@ -2,6 +2,9 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+
+import java.awt.Font;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -26,14 +29,15 @@ class TicTacToe implements ActionListener {
     }
 
     title_label.setText("Tic Tac Toe");
+    title_label.setFont(new Font("Arial", Font.BOLD, 20));
     title_label.setVerticalTextPosition(JLabel.TOP);
     title_label.setHorizontalAlignment(JLabel.CENTER);
 
-    title_panel.setBackground(Color.RED);
+    title_panel.setBackground(Color.LIGHT_GRAY);
     title_panel.add(title_label);
     button_panel.setLayout(new GridLayout(3, 3, 0, 0));
 
-    frame.add(title_panel);
+    frame.add(title_panel, BorderLayout.NORTH);
     frame.add(button_panel);
     frame.setSize(600, 600);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -48,9 +52,13 @@ class TicTacToe implements ActionListener {
         if ("".equals(field.getText())) {
           if (turn) {
             field.setText("X");
+            field.setFont(new Font("MV Boli", Font.PLAIN, 40));
+            field.setForeground(Color.RED);
             turn = !turn;
           } else {
             field.setText("O");
+            field.setForeground(Color.BLUE);
+            field.setFont(new Font("MV Boli", Font.PLAIN, 40));
             turn = !turn;
           }
           break;
