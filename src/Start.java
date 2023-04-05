@@ -1,3 +1,6 @@
+import java.util.Timer;
+import java.util.TimerTask;
+
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -7,7 +10,10 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.BorderLayout;
 
+
 class Start {
+
+  boolean show = false;
 
   Start() {
     JFrame frame = new JFrame();
@@ -16,7 +22,6 @@ class Start {
     JLabel start = new JLabel();
     JPanel panel = new JPanel();
     JPanel panel2 = new JPanel();
-    boolean show = false;
 
 
     label.setText("Want to play Tic Tac Toe ?");
@@ -49,19 +54,20 @@ class Start {
     frame.setVisible(true);
 
 
-    while (true) {
-      try {
-        Thread.sleep(900);
+    Timer timer = new Timer();
+    timer.scheduleAtFixedRate(new TimerTask() {
+      @Override
+      public void run() {
         if (show) {
           start.setText("Click start");
         } else {
           start.setText(" ");
         }
         show = !show;
-      } catch (Exception e) {
-        e.printStackTrace();
       }
-    }
+    }, 0, 900);
+
+
   }
 
 }
