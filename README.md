@@ -1,1 +1,1 @@
-# Tic Tac Toe
+# Tic TacToe
