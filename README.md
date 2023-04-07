@@ -13,6 +13,7 @@ user to play against another user
 > ![img_1.png](src/img/gui.png)
 
 > One player is "O" and the other player is "X"
+> 
 > Player with "O" starts first, then player "X"
 > 
 > ![img_2.png](src/img/play.png)
