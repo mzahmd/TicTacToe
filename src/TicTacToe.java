@@ -18,6 +18,7 @@ class TicTacToe implements ActionListener {
   JLabel title_label = new JLabel();
   JButton[] fields = new JButton[9];
   String winner;
+  int counter = 0;
   boolean x_turn;
 
   TicTacToe() {
@@ -60,6 +61,7 @@ class TicTacToe implements ActionListener {
             field.setFont(new Font("MV Boli", Font.PLAIN, 40));
             field.setForeground(Color.BLUE);
           }
+          counter++;
           check();
           x_turn = !x_turn;
           break;
@@ -97,6 +99,9 @@ class TicTacToe implements ActionListener {
     if(winner.equals(fields[2].getText()) && winner.equals(fields[4].getText()) && winner.equals(fields[6].getText())) {
       endgame(2, 4, 6);
     }
+    if (counter == 9) {
+      draw();
+    }
   }
 
   void endgame(int x, int y, int z) {
@@ -107,6 +112,15 @@ class TicTacToe implements ActionListener {
     for (JButton field : fields) {
       field.setEnabled(false);
     }
+    title_label.setText(winner + " winner");
+  }
+
+  void draw() {
+    for (JButton field : fields) {
+      field.setEnabled(false);
+    }
+
+    title_label.setText("draw");
   }
 
 }
