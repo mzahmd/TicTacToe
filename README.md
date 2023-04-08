@@ -10,6 +10,7 @@ user to play against another user
 >![img.png](src/img/menu.png)
 
 > click to any empty field
+> 
 > ![img_1.png](src/img/gui.png)
 
 > One player is "O" and the other player is "X"
@@ -19,6 +20,7 @@ user to play against another user
 > ![img_2.png](src/img/play.png)
 
 > If someone has managed to place his markers in a row, this player has won
+> 
 > ![img_3.png](src/img/winner.png)
 
 > and if it's a draw no one has won
