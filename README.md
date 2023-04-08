@@ -22,6 +22,6 @@ user to play against another user
 > ![img_3.png](src/img/winner.png)
 
 > and if it's a draw no one has won
-> ![img.png](src/img/img.png)
+> ![img.png](src/img/draw.png)
 >
 > 
